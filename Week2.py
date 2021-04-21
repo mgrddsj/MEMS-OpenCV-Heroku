@@ -9,7 +9,7 @@ def main():
     st.markdown("**Note:** Images are compressed for web viewing.")
     st.markdown("Display and process results may be different from original images.")
     st.markdown("However, the images are still quite large, you may need a fast Internet to open this page.")
-    st.markdown("图片已针对网页浏览压缩，图片的显示和处理可能于原图有偏差。")
+    st.markdown("图片已针对网页浏览压缩，图片的显示和处理可能与原图有偏差。")
     st.markdown("但图片仍然较大，加载可能会比较缓慢。如果加载不出来，请确保您可以访问国际互联网。")
     st.sidebar.write("Variable control panel\n变量控制台")
 
