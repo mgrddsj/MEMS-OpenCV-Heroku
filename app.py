@@ -24,5 +24,5 @@ st.markdown("***")
 if files[file_selection] != "":
     query_params["file_selection"] = file_selection
     st.experimental_set_query_params(**query_params)
-    importlib.import_module(files[file_selection])
-
+    module = __import__(files[file_selection])
+    getattr(module, "main")()
