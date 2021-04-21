@@ -5,11 +5,24 @@ files = {
     "---Please select---": "", 
     "Week 2": "Week2"
 }
+file_list = list(files.keys())
 
 st.set_page_config(layout="centered")
-file_prompt = st.text("Please select the file you want to run.")
-file_selection = st.selectbox("File from week ", list(files.keys()))
+query_params = st.experimental_get_query_params()
+st.header("Jesse Xu's Senior Project")
+st.subheader("Make Computers See: Image Processing with OpenCV")
+st.markdown("***")
+file_prompt = st.markdown("Please select a week number to see my work of the week")
+
+file_index = 0
+if "file_selection" in query_params:
+    file_index = file_list.index(query_params["file_selection"][0])
+
+file_selection = st.selectbox("Week number", file_list, index=file_index)
+st.markdown("***")
 
 if files[file_selection] != "":
+    query_params["file_selection"] = file_selection
+    st.experimental_set_query_params(**query_params)
     importlib.import_module(files[file_selection])
 
