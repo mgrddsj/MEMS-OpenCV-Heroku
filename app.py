@@ -3,7 +3,7 @@ import importlib
 
 files = {
     "---Please select---": "", 
-    "Week 1": "Week1"
+    "Week 2": "Week2"
 }
 
 st.set_page_config(layout="centered")
