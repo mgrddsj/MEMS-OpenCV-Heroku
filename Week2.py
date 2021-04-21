@@ -9,6 +9,9 @@ st.header("")
 st.markdown("**Note:** Images are compressed for web viewing.")
 st.markdown("Display and process results may be different from original images.")
 
+original_img = cv2.imread(file_path)
+st.image(original_img, use_column_width=True, caption="Original image 原图")
+
 image = cv2.imread(file_path, 0)  # Read as grayscale image
 st.image(image, use_column_width=True, caption="Grayscale image 灰度图")
 
