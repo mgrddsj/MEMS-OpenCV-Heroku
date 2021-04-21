@@ -7,7 +7,7 @@ files = {
 }
 file_list = list(files.keys())
 
-st.set_page_config(layout="centered")
+st.set_page_config(page_title="Jesse Xu's Senior Project", page_icon="favicon.ico", layout="centered")
 query_params = st.experimental_get_query_params()
 st.header("Jesse Xu's Senior Project")
 st.subheader("Make Computers See: Image Processing with OpenCV")
