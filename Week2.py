@@ -9,8 +9,17 @@ def main():
     st.markdown("**Note:** Images are compressed for web viewing.")
     st.markdown("Display and process results may be different from original images.")
     st.markdown("However, the images are still quite large, you may need a fast Internet to open this page.")
-    st.markdown("图片较大，加载可能会比较缓慢。如果加载不出来，请确保您可以访问国际互联网。")
+    st.markdown("图片已针对网页浏览压缩，图片的显示和处理可能于原图有偏差。")
+    st.markdown("但图片仍然较大，加载可能会比较缓慢。如果加载不出来，请确保您可以访问国际互联网。")
     st.sidebar.write("Variable control panel\n变量控制台")
+
+    
+    st.markdown("***")
+    st.markdown("This is a web app that renders the images real-time, tweak the values in the variable control panel to see the changes.")
+    st.markdown("For phone users, you can see the control panel by clicking the arrow on the top left of the page.")
+    st.markdown("这是一个实时渲染图片网页应用，您可以更改变量控制台中的数值来查看变化。")
+    st.markdown("手机用户可以通过点击页面左上方的箭头按钮来打开变量控制台。")
+    st.markdown("***")
 
     original_img = cv2.imread(file_path)
     original_img = cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB)
