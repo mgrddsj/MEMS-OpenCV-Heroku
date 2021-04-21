@@ -8,8 +8,10 @@ file_path = "img/50x_14.webp"
 st.header("")
 st.markdown("**Note:** Images are compressed for web viewing.")
 st.markdown("Display and process results may be different from original images.")
+st.markdown("However, the images are still quite large, you may need a fast Internet to open this page.")
 
 original_img = cv2.imread(file_path)
+original_img = cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB)
 st.image(original_img, use_column_width=True, caption="Original image 原图")
 
 image = cv2.imread(file_path, 0)  # Read as grayscale image
