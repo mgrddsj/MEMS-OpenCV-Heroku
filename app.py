@@ -3,7 +3,8 @@ import importlib
 
 files = {
     "---Please select---": "", 
-    "Week 2": "Week2"
+    "Week 2": "Week2",
+    "Week 3": "Week3"
 }
 file_list = list(files.keys())
 
