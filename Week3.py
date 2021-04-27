@@ -19,7 +19,7 @@ def main():
     st.markdown("手机用户可以通过点击页面左上方的箭头按钮来打开变量控制台。")
     st.markdown("***")
 
-    file_list = glob.glob("img/*")
+    file_list = sorted(glob.glob("img/*"))
     file_path = st.sidebar.selectbox("Image:", file_list, index=8)
 
     original_img = cv2.imread(file_path)
