@@ -74,23 +74,29 @@ def main():
     st.text("lines detected: {}".format(len(lines)))
 
     # Harris 角点检测
-    corners = cv2.cornerHarris(img, blockSize=5, ksize=5, k=0.04)
-    harris_img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-    harris_img[corners > 0.1*corners.max()] = [0, 255, 0]
-    st.image(harris_img, use_column_width=True, clamp=True, caption="Harris Corner detection 角点检测")
-    st.text("Corners detected: {}".format(len(corners)))
+    st.write("**Harris 角点检测**")
+    with st.echo():
+        corners = cv2.cornerHarris(img, blockSize=5, ksize=5, k=0.04)
+        harris_img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+        harris_img[corners > 0.1*corners.max()] = [0, 255, 0]
+        st.image(harris_img, use_column_width=True, clamp=True, caption="Harris Corner detection 角点检测")
+        st.text("Corners detected: {}".format(len(corners)))
+    st.write("The detected corners are drawn in green, you may need to zoom in to see them.")
+    st.write("检测到的角点已用绿色像素标出，您可能需要放大来看见它们。")
 
     # Shi-Tomasi 角点检测
-    corners_s = cv2.goodFeaturesToTrack(
-        img, maxCorners=100, qualityLevel=0.01, minDistance=0)
-    corners_s = np.int0(corners_s)
-    shitomasi_img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-    for i in corners_s:
-        x, y = i.ravel()
-        cv2.circle(shitomasi_img, (x, y), 5, (0, 255, 0), -1)
-    st.image(shitomasi_img, use_column_width=True,
-            clamp=True, caption="Shi-Tomasi Corner detection 角点检测")
-    st.text("Corners detected: {}".format(len(corners_s)))
+    st.write("**Shi-Tomasi 角点检测**")
+    with st.echo():
+        corners_s = cv2.goodFeaturesToTrack(
+            img, maxCorners=100, qualityLevel=0.01, minDistance=0)
+        corners_s = np.int0(corners_s)
+        shitomasi_img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+        for i in corners_s:
+            x, y = i.ravel()
+            cv2.circle(shitomasi_img, (x, y), 5, (0, 255, 0), -1)
+        st.image(shitomasi_img, use_column_width=True,
+                clamp=True, caption="Shi-Tomasi Corner detection 角点检测")
+        st.text("Corners detected: {}".format(len(corners_s)))
 
 
 if __name__ == "__main__":
