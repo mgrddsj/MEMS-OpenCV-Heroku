@@ -57,14 +57,15 @@ def main():
     st.image(img, use_column_width=True, clamp=True, caption="Contour 轮廓")
 
     # 霍夫变换
+    st.sidebar.write("Hough Line Transform (HLT) 霍夫变换")
     blank2 = np.zeros(img.shape, np.uint8)
     blank2 = cv2.cvtColor(blank2, cv2.COLOR_GRAY2BGR)
-    houghRho = st.sidebar.slider("霍夫变换 rho 值（搜索步长）", min_value=1, max_value=10, value=1)
+    houghRho = st.sidebar.slider("HLT rho (step size) 霍夫变换 rho 值（搜索步长）", min_value=1, max_value=10, value=1)
     houghThreshhold = st.sidebar.slider(
-        "霍夫变换阈值", min_value=1, max_value=1000, value=100)
+        "HLT threshold 霍夫变换阈值", min_value=1, max_value=1000, value=100)
     houghMinLineLength = st.sidebar.slider(
-        "霍夫最短线段长度", min_value=1, max_value=500, value=10)
-    houghMaxLineGap = st.sidebar.slider("霍夫最长间隙", min_value=1, max_value=200, value=100)
+        "HLT min. length 霍夫最短线段长度", min_value=1, max_value=500, value=10)
+    houghMaxLineGap = st.sidebar.slider("HLT max line gap 霍夫最长间隙", min_value=1, max_value=200, value=100)
     lines = cv2.HoughLinesP(img, houghRho, np.pi/180, houghThreshhold,
                             minLineLength=houghMinLineLength, maxLineGap=houghMaxLineGap)
     for line in lines:
