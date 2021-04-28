@@ -86,7 +86,7 @@ def main():
     st.write("检测到的角点已用绿色像素标出，您可能需要放大来看见它们。")
 
     # Shi-Tomasi 角点检测
-    st.write("**Shi-Tomasi Corner Detection角点检测**")
+    st.write("**Shi-Tomasi Corner Detection 角点检测**")
     with st.echo():
         corners_s = cv2.goodFeaturesToTrack(
             img, maxCorners=100, qualityLevel=0.01, minDistance=0)
