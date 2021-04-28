@@ -75,7 +75,7 @@ def main():
     st.text("lines detected: {}".format(len(lines)))
 
     # Harris 角点检测
-    st.write("**Harris 角点检测**")
+    st.write("**Harris Corner Detection 角点检测**")
     with st.echo():
         corners = cv2.cornerHarris(img, blockSize=5, ksize=5, k=0.04)
         harris_img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
@@ -86,7 +86,7 @@ def main():
     st.write("检测到的角点已用绿色像素标出，您可能需要放大来看见它们。")
 
     # Shi-Tomasi 角点检测
-    st.write("**Shi-Tomasi 角点检测**")
+    st.write("**Shi-Tomasi Corner Detection角点检测**")
     with st.echo():
         corners_s = cv2.goodFeaturesToTrack(
             img, maxCorners=100, qualityLevel=0.01, minDistance=0)
