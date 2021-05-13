@@ -4,7 +4,8 @@ import importlib
 files = {
     "---Please select---": "", 
     "Week 2": "Week2",
-    "Week 3": "Week3"
+    "Week 3": "Week3",
+    "Week 4": "Week4"
 }
 file_list = list(files.keys())
 
