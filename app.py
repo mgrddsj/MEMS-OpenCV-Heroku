@@ -6,7 +6,8 @@ files = {
     "Week 2": "Week2",
     "Week 3": "Week3",
     "Week 4": "Week4",
-    "Week 5": "Week5"
+    "Week 5": "Week5",
+    "Week 6": "Week6"
 }
 file_list = list(files.keys())
 
