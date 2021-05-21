@@ -26,7 +26,8 @@ def main():
     file_list = sorted(glob.glob("camcalib/*.webp"), key=lambda x: int(os.path.basename(x).split(".")[0]))
     photo_selector = st.select_slider("", file_list, value=file_list[0])
     st.image(cv2.imread(photo_selector), channels="BGR")
-    
+
+    st.write("CPU count:", multiprocessing.cpu_count())
     
     if st.button("Start camera calibration 开始相机矫正"):
         CHESSBOARD = (9, 7)
@@ -44,7 +45,7 @@ def main():
 
         # Multiprocess
         start_time = time.time()
-        pool = multiprocessing.Pool()
+        pool = multiprocessing.Pool(processes=1)
         func = partial(processImages, CHESSBOARD=CHESSBOARD, criteria=criteria, objpoints=objpoints, imgpoints=imgpoints, objp=objp)
         for _ in stqdm.stqdm(pool.imap_unordered(func, file_list), total=len(file_list), unit="photo"):
             pass
