@@ -70,7 +70,7 @@ def main():
         st.write("Using the calibration results to calibrate an image (1.webp): ")
         st.write("使用相机矫正的结果来纠正畸变（此处使用 1.webp）:")
         undistorted = cv2.undistort(image, mtx, dist)
-        st.image(undistorted, use_column_width=True, caption="校正后的图像", channels="BGR")
+        st.image(undistorted, use_column_width=True, caption="Undistorted image 校正后的图像", channels="BGR")
     else:
         st.write("Press the start button to start the camera calibration process. ")
         st.write("Please **DO NOT** press it repeatedly as it may crash the server.")
